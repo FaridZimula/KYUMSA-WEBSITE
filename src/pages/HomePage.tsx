@@ -147,11 +147,11 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">What We Do</h2>
-          <p className="text-gray-600 mb-12 max-w-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 text-justify">What We Do</h2>
+          <p className="text-gray-600 mb-12 max-w-2xl text-justify">
             Discover our diverse programs and activities designed to nurture faith, excellence, and community service
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 px-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 px-8">
             <div className="group perspective-1000">
               <div className="relative h-56 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
                 <div className="absolute inset-0 bg-[#00703C] rounded-lg p-6 flex flex-col items-center justify-center text-white backface-hidden">
@@ -198,11 +198,11 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 mt-16">Upcoming Events</h2>
-          <p className="text-gray-600 mb-12 max-w-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 mt-16 text-justify">Upcoming Events</h2>
+          <p className="text-gray-600 mb-12 max-w-2xl text-justify">
             Stay connected with our community through various events and activities throughout the year
           </p>
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-12">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8">
             {upcomingEvents.map((event, index) => (
               <div
                 key={index}
