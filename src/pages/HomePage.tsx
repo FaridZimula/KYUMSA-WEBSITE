@@ -243,6 +243,46 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div className="pr-0 md:pr-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#00703C]">Message from President</h2>
+              <div className="space-y-4 text-gray-700 leading-relaxed">
+                <p>
+                  Welcome to KYUCSA, where innovation meets opportunity. As your president, I'm excited to lead an organization that has consistently championed academic excellence and professional development in computing.
+                </p>
+                <p>
+                  This year, we're committed to expanding our reach through enhanced digital resources, industry partnerships, and cutting-edge workshops that prepare you for the evolving tech landscape.
+                </p>
+                <p>
+                  Together, we're not just building careers – we're shaping the future of technology in Uganda and beyond. Join us in this exciting journey of growth, learning, and innovation.
+                </p>
+              </div>
+              <button
+                onClick={() => onNavigate('chairman-message')}
+                className="mt-6 bg-[#00703C] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#005A30] transition-colors"
+              >
+                Read Full Message
+              </button>
+            </div>
+            <div className="relative">
+              <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden shadow-xl">
+                <img
+                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="President"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-[#00703C] text-white p-4">
+                  <h3 className="text-xl font-bold">H.E ZIMULA FARID</h3>
+                  <p className="text-sm">KYUCSA PRESIDENT</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
