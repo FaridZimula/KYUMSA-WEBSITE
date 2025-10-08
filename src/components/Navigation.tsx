@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Mail } from 'lucide-react';
 
 interface NavigationProps {
   currentPage: string;
@@ -33,13 +33,29 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onNavigate }) => {
   };
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <>
+      <div className="bg-[#00703C] text-white py-2 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-end items-center">
+            <div className="flex items-center space-x-2">
+              <Mail className="h-4 w-4" />
+              <span className="text-sm">Mail Us on kyumsa00gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <nav className="bg-white shadow-lg sticky top-14 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-[#00703C]">KYUMSA</h1>
-              <p className="text-xs text-gray-600">Kyambogo University Muslim Students Association</p>
+            <div className="flex-shrink-0 flex items-center space-x-3">
+              <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
+                <span className="text-xs text-gray-500">Logo</span>
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-[#00703C]">KYUMSA</h1>
+                <p className="text-xs text-gray-600">Kyambogo University Muslim Students Association</p>
+              </div>
             </div>
           </div>
 
@@ -247,6 +263,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onNavigate }) => {
         </div>
       )}
     </nav>
+    </>
   );
 };
 

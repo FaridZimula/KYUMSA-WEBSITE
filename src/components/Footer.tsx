@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold text-white mb-4">KYUMSA</h3>
-            <p className="text-gray-100 mb-4">
+            <p className="text-gray-100 mb-4 text-justify md:text-left">
               Kyambogo University Muslim Students Association is dedicated to fostering Islamic values, academic excellence, and community service among Muslim students at Kyambogo University.
             </p>
             <div className="space-y-2 text-sm">
