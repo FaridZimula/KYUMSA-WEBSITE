@@ -21,19 +21,21 @@ const LogoAnimation: React.FC<LogoAnimationProps> = ({ onComplete }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-[#00703C] transition-opacity duration-500 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-500 ${
         isAnimating ? 'opacity-100' : 'opacity-0'
       }`}
     >
       <div className="text-center">
         <div className="relative">
-          <div className="animate-pulse">
-            <Users className="h-32 w-32 text-white mx-auto mb-6 animate-bounce" style={{ animationDuration: '1.5s' }} />
+          <div className="animate-pulse mb-8">
+            <div className="w-48 h-48 bg-gray-200 mx-auto rounded-lg flex items-center justify-center shadow-lg">
+              <span className="text-gray-400 text-sm">Logo Space</span>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-2 animate-fade-in">
+          <h1 className="text-4xl md:text-6xl font-bold text-[#00703C] mb-2 animate-fade-in">
             KYUMSA
           </h1>
-          <p className="text-lg md:text-xl text-white animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <p className="text-lg md:text-xl text-gray-700 animate-fade-in" style={{ animationDelay: '0.5s' }}>
             Kyambogo University Muslim Students Association
           </p>
         </div>
