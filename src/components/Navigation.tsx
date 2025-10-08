@@ -17,7 +17,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onNavigate }) => {
   };
 
   const getNavItemClass = (page: string) => {
-    return `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+    return `px-4 py-2 rounded-md text-base font-medium transition-colors ${
       currentPage === page
         ? 'bg-[#00703C] text-white'
         : 'text-gray-800 hover:text-[#00703C]'
@@ -48,19 +48,15 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onNavigate }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <div className="flex-shrink-0 flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
+            <div className="flex-shrink-0">
+              <div className="w-16 h-16 bg-gray-200 flex items-center justify-center rounded-md">
                 <span className="text-xs text-gray-500">Logo</span>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-[#00703C]">KYUMSA</h1>
-                <p className="text-xs text-gray-600">Kyambogo University Muslim Students Association</p>
               </div>
             </div>
           </div>
 
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline space-x-6">
               <button onClick={() => handleNavigation('home')} className={getNavItemClass('home')}>
                 Home
               </button>

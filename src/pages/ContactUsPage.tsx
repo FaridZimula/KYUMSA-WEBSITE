@@ -38,9 +38,15 @@ const ContactUsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="relative h-64 bg-gradient-to-r from-[#00703C] to-[#005A30]">
+      <div className="relative h-80 bg-gradient-to-r from-[#00703C] to-[#005A30] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{
+            backgroundImage: 'url(https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&cs=tinysrgb&w=1260)'
+          }}
+        ></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Contact Us</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-white z-10">Contact Us</h1>
         </div>
       </div>
 
@@ -51,31 +57,23 @@ const ContactUsPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
-            <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Mail className="h-8 w-8 text-[#00703C]" />
+        <div className="grid md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
+            <div className="bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Mail className="h-8 w-8 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Email Us</h3>
-            <a href="mailto:faridzimula602@gmail.com" className="text-[#00703C] hover:underline">
+            <h3 className="text-xl font-semibold text-white mb-2">Email Us</h3>
+            <a href="mailto:faridzimula602@gmail.com" className="text-[#FFD300] hover:underline font-semibold">
               faridzimula602@gmail.com
             </a>
           </div>
 
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
-            <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Phone className="h-8 w-8 text-[#00703C]" />
+          <div className="bg-gradient-to-br from-[#FFD300] to-[#FFA500] rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
+            <div className="bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <MapPin className="h-8 w-8 text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Call Us</h3>
-            <p className="text-gray-700">+256 XXX XXX XXX</p>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
-            <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <MapPin className="h-8 w-8 text-[#00703C]" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Visit Us</h3>
-            <p className="text-gray-700">Kyambogo University Mosque</p>
+            <h3 className="text-xl font-semibold text-white mb-2">Visit Us</h3>
+            <p className="text-white font-semibold">Kyambogo University Mosque</p>
           </div>
         </div>
 
@@ -203,15 +201,15 @@ const ContactUsPage: React.FC = () => {
         <div className="bg-white rounded-lg shadow-xl p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Office Hours</h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <div className="text-center p-4 bg-gray-50 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-2">Weekdays</h3>
-              <p className="text-gray-700">Monday - Friday</p>
-              <p className="text-[#00703C] font-semibold">9:00 AM - 5:00 PM</p>
+            <div className="text-center p-6 bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg">
+              <h3 className="font-semibold text-white mb-2 text-lg">Weekdays</h3>
+              <p className="text-white">Monday - Friday</p>
+              <p className="text-[#FFD300] font-semibold text-lg mt-2">9:00 AM - 5:00 PM</p>
             </div>
-            <div className="text-center p-4 bg-gray-50 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-2">Weekends</h3>
-              <p className="text-gray-700">Saturday - Sunday</p>
-              <p className="text-[#00703C] font-semibold">By Appointment</p>
+            <div className="text-center p-6 bg-gradient-to-br from-[#FFD300] to-[#FFA500] rounded-lg">
+              <h3 className="font-semibold text-white mb-2 text-lg">Weekends</h3>
+              <p className="text-white">Saturday - Sunday</p>
+              <p className="text-white font-semibold text-lg mt-2">By Appointment</p>
             </div>
           </div>
         </div>
