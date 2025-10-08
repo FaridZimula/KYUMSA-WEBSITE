@@ -34,7 +34,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onNavigate }) => {
 
   return (
     <>
-      <div className="bg-[#00703C] text-white py-2 sticky top-0 z-50">
+      <div className="bg-[#00703C] text-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-end items-center">
             <div className="flex items-center space-x-2">
@@ -44,7 +44,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onNavigate }) => {
           </div>
         </div>
       </div>
-    <nav className="bg-white shadow-lg sticky top-14 z-40">
+    <nav className="bg-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
