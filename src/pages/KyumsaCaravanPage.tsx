@@ -32,17 +32,17 @@ const KyumsaCaravanPage: React.FC = () => {
 
   const activities = [
     {
-      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300',
       title: 'Rural Community Outreach',
       description: 'Our team visiting remote villages to provide essential services and support'
     },
     {
-      image: 'https://images.pexels.com/photos/6647034/pexels-photo-6647034.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/6647034/pexels-photo-6647034.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300',
       title: 'Medical Camp Setup',
       description: 'Setting up temporary medical facilities to serve community members'
     },
     {
-      image: 'https://images.pexels.com/photos/6994982/pexels-photo-6994982.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/6994982/pexels-photo-6994982.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300',
       title: 'Food Distribution Drive',
       description: 'Distributing food packages to families affected by economic hardships'
     }
@@ -50,24 +50,41 @@ const KyumsaCaravanPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="relative h-64 bg-gradient-to-r from-[#00703C] to-[#005A30]">
+      <div className="relative h-80 bg-gradient-to-r from-[#00703C] to-[#005A30] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{
+            backgroundImage: 'url(https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1260)'
+          }}
+        ></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">The Kyumsa Caravan</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-white z-10">The Kyumsa Caravan</h1>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-16">
         <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
-          <div className="flex justify-center mb-6">
-            <Truck className="h-16 w-16 text-[#00703C]" />
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">About The Caravan</h2>
+          <div className="flex flex-col md:flex-row gap-8 items-start">
+            <div className="flex-1">
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                The KYUMSA Caravan is our flagship community outreach program that takes the spirit of Islamic charity directly to communities in need. This mobile initiative represents our commitment to serving humanity and embodying the teachings of compassion and generosity in Islam.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Through the Caravan, we mobilize students, volunteers, and resources to reach remote and underserved areas, providing essential services including medical care, food distribution, educational support, and community development projects. The program runs year-round with special emphasis during Ramadan and other significant occasions.
+              </p>
+              <button className="bg-[#00703C] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#005A30] transition-colors">
+                Read Full Message
+              </button>
+            </div>
+            <div className="w-full md:w-64 flex-shrink-0">
+              <img
+                src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400&h=500"
+                alt="Chairman"
+                className="w-full rounded-lg shadow-lg object-cover aspect-[4/5]"
+              />
+            </div>
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">About The Caravan</h2>
-          <p className="text-lg text-gray-700 leading-relaxed mb-4">
-            The KYUMSA Caravan is our flagship community outreach program that takes the spirit of Islamic charity directly to communities in need. This mobile initiative represents our commitment to serving humanity and embodying the teachings of compassion and generosity in Islam.
-          </p>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            Through the Caravan, we mobilize students, volunteers, and resources to reach remote and underserved areas, providing essential services including medical care, food distribution, educational support, and community development projects. The program runs year-round with special emphasis during Ramadan and other significant occasions.
-          </p>
         </div>
 
         <section className="mb-12">
@@ -76,15 +93,15 @@ const KyumsaCaravanPage: React.FC = () => {
             {initiatives.map((initiative, index) => {
               const Icon = initiative.icon;
               return (
-                <div key={index} className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
+                <div key={index} className="bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-green-100 p-4 rounded-lg flex-shrink-0">
-                      <Icon className="h-8 w-8 text-[#00703C]" />
+                    <div className="bg-white bg-opacity-20 p-4 rounded-lg flex-shrink-0">
+                      <Icon className="h-8 w-8 text-[#FFD300]" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{initiative.title}</h3>
-                      <p className="text-gray-700 mb-3">{initiative.description}</p>
-                      <p className="text-sm font-semibold text-[#00703C]">{initiative.impact}</p>
+                      <h3 className="text-xl font-bold text-white mb-2">{initiative.title}</h3>
+                      <p className="text-white mb-3">{initiative.description}</p>
+                      <p className="text-sm font-semibold text-[#FFD300]">{initiative.impact}</p>
                     </div>
                   </div>
                 </div>
@@ -98,7 +115,7 @@ const KyumsaCaravanPage: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {activities.map((activity, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="h-48 overflow-hidden">
+                <div className="aspect-[127/130] overflow-hidden">
                   <img
                     src={activity.image}
                     alt={activity.title}
@@ -139,24 +156,33 @@ const KyumsaCaravanPage: React.FC = () => {
         <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">How to Get Involved</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <h3 className="font-semibold text-lg text-gray-900 mb-3">Volunteer</h3>
-              <p className="text-gray-700 mb-4">Join our team of dedicated volunteers and participate in Caravan trips to serve communities in need.</p>
-              <button className="bg-[#00703C] text-white px-6 py-2 rounded-md hover:bg-[#005A30] transition-colors">
+            <div className="text-center p-6 bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg">
+              <div className="mb-4">
+                <Users className="h-12 w-12 mx-auto text-[#FFD300]" />
+              </div>
+              <h3 className="font-semibold text-lg text-white mb-3">Volunteer</h3>
+              <p className="text-white mb-4">Join our team of dedicated volunteers and participate in Caravan trips to serve communities in need.</p>
+              <button className="bg-[#FFD300] text-gray-900 px-6 py-2 rounded-md hover:bg-[#FFC700] transition-colors font-semibold">
                 Sign Up
               </button>
             </div>
-            <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <h3 className="font-semibold text-lg text-gray-900 mb-3">Donate</h3>
-              <p className="text-gray-700 mb-4">Support our initiatives through financial contributions or donation of essential items and supplies.</p>
-              <button className="bg-[#00703C] text-white px-6 py-2 rounded-md hover:bg-[#005A30] transition-colors">
+            <div className="text-center p-6 bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg">
+              <div className="mb-4">
+                <Gift className="h-12 w-12 mx-auto text-[#FFD300]" />
+              </div>
+              <h3 className="font-semibold text-lg text-white mb-3">Donate</h3>
+              <p className="text-white mb-4">Support our initiatives through financial contributions or donation of essential items and supplies.</p>
+              <button className="bg-[#FFD300] text-gray-900 px-6 py-2 rounded-md hover:bg-[#FFC700] transition-colors font-semibold">
                 Donate Now
               </button>
             </div>
-            <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <h3 className="font-semibold text-lg text-gray-900 mb-3">Partner</h3>
-              <p className="text-gray-700 mb-4">Organizations and institutions can partner with us to expand our reach and impact.</p>
-              <button className="bg-[#00703C] text-white px-6 py-2 rounded-md hover:bg-[#005A30] transition-colors">
+            <div className="text-center p-6 bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg">
+              <div className="mb-4">
+                <Heart className="h-12 w-12 mx-auto text-[#FFD300]" />
+              </div>
+              <h3 className="font-semibold text-lg text-white mb-3">Partner</h3>
+              <p className="text-white mb-4">Organizations and institutions can partner with us to expand our reach and impact.</p>
+              <button className="bg-[#FFD300] text-gray-900 px-6 py-2 rounded-md hover:bg-[#FFC700] transition-colors font-semibold">
                 Contact Us
               </button>
             </div>

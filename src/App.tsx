@@ -18,6 +18,15 @@ function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [showAnimation, setShowAnimation] = useState(true);
 
+  React.useEffect(() => {
+    const handleNavigate = (event: Event) => {
+      const customEvent = event as CustomEvent<string>;
+      setCurrentPage(customEvent.detail);
+    };
+    window.addEventListener('navigate', handleNavigate);
+    return () => window.removeEventListener('navigate', handleNavigate);
+  }, []);
+
   const renderCurrentPage = () => {
     switch (currentPage) {
       case 'home':
