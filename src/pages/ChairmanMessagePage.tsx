@@ -1,58 +1,49 @@
 import React from 'react';
-import { Quote } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const ChairmanMessagePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="relative h-64 bg-gradient-to-r from-[#00703C] to-[#005A30]">
+      <div className="relative h-64 bg-gradient-to-r from-[#00703C] to-[#005A30] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Chairman Message Background"
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white">Our Chairman's Message</h1>
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 py-16">
-        <div className="bg-white rounded-lg shadow-xl p-8 md:p-12">
-          <div className="flex justify-center mb-8">
-            <Quote className="h-16 w-16 text-[#00703C]" />
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="grid md:grid-cols-2 gap-8 items-start">
+          <div className="pr-0 md:pr-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#00703C]">Message from President</h2>
+            <div className="space-y-4 text-gray-700 leading-relaxed">
+              <p>
+                Welcome to KYUCSA, where innovation meets opportunity. As your president, I'm excited to lead an organization that has consistently championed academic excellence and professional development in computing.
+              </p>
+              <p>
+                This year, we're committed to expanding our reach through enhanced digital resources, industry partnerships, and cutting-edge workshops that prepare you for the evolving tech landscape.
+              </p>
+              <p>
+                Together, we're not just building careers – we're shaping the future of technology in Uganda and beyond. Join us in this exciting journey of growth, learning, and innovation.
+              </p>
+            </div>
           </div>
-
-          <div className="space-y-6 text-gray-700 leading-relaxed">
-            <p className="text-lg">
-              <strong>Assalamu Alaikum Wa Rahmatullahi Wa Barakatuh,</strong>
-            </p>
-
-            <p>
-              It is with great pleasure and profound gratitude to Allah (SWT) that I address you as the Chairman of the Kyambogo University Muslim Students Association (KYUMSA). Our organization stands as a beacon of Islamic values, academic excellence, and community service within our beloved institution.
-            </p>
-
-            <p>
-              KYUMSA is more than just a student organization; it is a family united by faith, purpose, and a shared commitment to both spiritual and academic growth. We strive to create an environment where every Muslim student can thrive, practice their faith freely, and contribute meaningfully to the university community and society at large.
-            </p>
-
-            <p>
-              Our mission is anchored in three fundamental pillars: strengthening Islamic knowledge through regular study circles and religious programs, promoting academic excellence through mentorship and support systems, and engaging in charitable works that reflect the compassionate teachings of Islam.
-            </p>
-
-            <p>
-              As we navigate the challenges of modern university life, we remain steadfast in our commitment to maintaining the highest standards of Islamic conduct while excelling in our academic pursuits. We encourage all our members to be exemplary students, responsible citizens, and dedicated Muslims who contribute positively to society.
-            </p>
-
-            <p>
-              I extend my heartfelt appreciation to our dedicated executive committee, our supportive members, and all those who contribute to making KYUMSA a vibrant and impactful organization. Together, we continue to build a legacy of faith, knowledge, and service.
-            </p>
-
-            <p>
-              May Allah (SWT) bless our efforts, guide our paths, and grant us success in this life and the hereafter.
-            </p>
-
-            <p className="text-lg mt-8">
-              <strong>Wassalamu Alaikum Wa Rahmatullahi Wa Barakatuh</strong>
-            </p>
-
-            <div className="mt-12 pt-8 border-t border-gray-200">
-              <p className="font-semibold text-xl text-[#00703C]">Chairman</p>
-              <p className="text-lg">Kyambogo University Muslim Students Association</p>
+          <div className="relative">
+            <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden shadow-xl">
+              <img
+                src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="President"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-[#00703C] text-white p-4">
+                <h3 className="text-xl font-bold">H.E ZIMULA FARID</h3>
+                <p className="text-sm">KYUCSA PRESIDENT</p>
+              </div>
             </div>
           </div>
         </div>
