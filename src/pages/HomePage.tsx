@@ -84,34 +84,13 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
   return (
     <div className="min-h-screen">
-      <div className="bg-[#1a1a2e] text-white py-3">
-        <div className="max-w-7xl mx-auto px-4 flex justify-end items-center">
-          <div className="flex items-center space-x-2">
-            <Mail className="h-4 w-4" />
-            <span className="text-sm">kyumsa00gmail.com</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white border-b border-gray-200 py-6">
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Users className="h-16 w-16 text-[#00703C]" />
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">KYUMSA</h1>
-              <p className="text-sm text-gray-600">Kyambogo University Muslim Students Association</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="bg-gray-100 py-4 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <h3 className="text-sm font-semibold text-gray-700"># Top Tags</h3>
-            <div className="flex flex-wrap gap-2 justify-end">
+            <div className="flex flex-wrap gap-2">
               {tags.map((tag, index) => (
-                <span key={index} className="px-3 py-1 bg-white text-xs font-medium text-gray-700 rounded-full border border-gray-300 hover:bg-[#00703C] hover:text-white transition-colors cursor-pointer">
+                <span key={index} className="px-3 py-1.5 bg-[#00703C] text-white text-xs font-medium rounded hover:bg-[#005A30] transition-colors cursor-pointer">
                   {tag}
                 </span>
               ))}
@@ -120,7 +99,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </div>
       </div>
 
-      <div className="relative h-[600px] overflow-hidden">
+      <div className="relative h-[67vh] overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -134,12 +113,12 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#00703C]/80 to-[#005A30]/70" />
             </div>
-            <div className="relative h-full flex items-center justify-center text-center px-4">
-              <div className="max-w-4xl">
-                <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-fade-in">
+            <div className="relative h-full flex items-center px-4 md:px-8 lg:px-16">
+              <div className="max-w-2xl text-left">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-2xl text-white mb-8 animate-fade-in">
+                <p className="text-lg md:text-xl lg:text-2xl text-white mb-8 animate-fade-in">
                   {slide.description}
                 </p>
                 <button
@@ -168,23 +147,68 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">Upcoming Events</h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 text-justify">What We Do</h2>
+          <p className="text-gray-600 mb-12 max-w-2xl text-justify">
+            Discover our diverse programs and activities designed to nurture faith, excellence, and community service
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 px-8">
+            <div className="group perspective-1000">
+              <div className="relative h-56 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
+                <div className="absolute inset-0 bg-[#00703C] rounded-lg p-6 flex flex-col items-center justify-center text-white backface-hidden">
+                  <Users className="h-12 w-12 mb-4" />
+                  <h3 className="text-xl font-semibold">Community Building</h3>
+                </div>
+                <div className="absolute inset-0 bg-white border-2 border-[#00703C] rounded-lg p-6 flex items-center justify-center text-gray-800 backface-hidden rotate-y-180">
+                  <p className="text-sm text-justify">Fostering unity and brotherhood among Muslim students through regular gatherings and activities</p>
+                </div>
+              </div>
+            </div>
+            <div className="group perspective-1000">
+              <div className="relative h-56 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
+                <div className="absolute inset-0 bg-[#00703C] rounded-lg p-6 flex flex-col items-center justify-center text-white backface-hidden">
+                  <Calendar className="h-12 w-12 mb-4" />
+                  <h3 className="text-xl font-semibold">Islamic Studies</h3>
+                </div>
+                <div className="absolute inset-0 bg-white border-2 border-[#00703C] rounded-lg p-6 flex items-center justify-center text-gray-800 backface-hidden rotate-y-180">
+                  <p className="text-sm text-justify">Weekly and daily Darusus sessions to deepen understanding of Islamic knowledge and practice</p>
+                </div>
+              </div>
+            </div>
+            <div className="group perspective-1000">
+              <div className="relative h-56 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
+                <div className="absolute inset-0 bg-[#00703C] rounded-lg p-6 flex flex-col items-center justify-center text-white backface-hidden">
+                  <MapPin className="h-12 w-12 mb-4" />
+                  <h3 className="text-xl font-semibold">Charity Work</h3>
+                </div>
+                <div className="absolute inset-0 bg-white border-2 border-[#00703C] rounded-lg p-6 flex items-center justify-center text-gray-800 backface-hidden rotate-y-180">
+                  <p className="text-sm text-justify">Organizing outreach programs and supporting underprivileged communities through regular initiatives</p>
+                </div>
+              </div>
+            </div>
+            <div className="group perspective-1000">
+              <div className="relative h-56 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
+                <div className="absolute inset-0 bg-[#00703C] rounded-lg p-6 flex flex-col items-center justify-center text-white backface-hidden">
+                  <Mail className="h-12 w-12 mb-4" />
+                  <h3 className="text-xl font-semibold">Student Support</h3>
+                </div>
+                <div className="absolute inset-0 bg-white border-2 border-[#00703C] rounded-lg p-6 flex items-center justify-center text-gray-800 backface-hidden rotate-y-180">
+                  <p className="text-sm text-justify">Providing academic guidance, mentorship, and resources to help students excel in their studies</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 mt-16 text-justify">Upcoming Events</h2>
+          <p className="text-gray-600 mb-12 max-w-2xl text-justify">
             Stay connected with our community through various events and activities throughout the year
           </p>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8">
             {upcomingEvents.map((event, index) => (
               <div
                 key={index}
-                className={`rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow ${
-                  event.color === 'green'
-                    ? 'bg-[#00703C] text-white'
-                    : event.color === 'gray'
-                    ? 'bg-gray-500 text-white'
-                    : 'bg-black text-white'
-                }`}
+                className="bg-[#00703C] text-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <img
                     src={event.image}
                     alt={event.title}
@@ -203,7 +227,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       <span>{event.location}</span>
                     </div>
                   </div>
-                  <p className="text-sm opacity-90">{event.description}</p>
+                  <p className="text-sm opacity-90 text-justify">{event.description}</p>
                 </div>
               </div>
             ))}
