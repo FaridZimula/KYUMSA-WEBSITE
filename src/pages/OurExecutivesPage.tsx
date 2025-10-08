@@ -7,62 +7,69 @@ const OurExecutivesPage: React.FC = () => {
     {
       name: 'Chairman',
       position: 'Chairperson',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Overall leadership and strategic direction of KYUMSA'
     },
     {
       name: 'Vice Chairman',
       position: 'Vice Chairperson',
-      image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Assists the Chairman and coordinates organizational activities'
     },
     {
       name: 'General Secretary',
       position: 'General Secretary',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Administrative coordination and communication management'
     },
     {
       name: 'Finance Secretary',
       position: 'Finance Secretary',
-      image: 'https://images.pexels.com/photos/2102415/pexels-photo-2102415.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://images.pexels.com/photos/2102415/pexels-photo-2102415.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Financial management and budgeting'
     },
     {
       name: 'Publicity Secretary',
       position: 'Publicity Secretary',
-      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Marketing, communications, and public relations'
     },
     {
       name: 'Da\'wah Secretary',
       position: 'Da\'wah Secretary',
-      image: 'https://images.pexels.com/photos/3184432/pexels-photo-3184432.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://images.pexels.com/photos/3184432/pexels-photo-3184432.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Islamic outreach and awareness programs'
     },
     {
       name: 'Academic Secretary',
       position: 'Academic Secretary',
-      image: 'https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Academic support and educational programs'
     },
     {
       name: 'Sports Secretary',
       position: 'Sports Secretary',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Sports activities and physical wellness programs'
     },
     {
       name: 'Sisters\' Representative',
       position: 'Sisters\' Representative',
-      image: 'https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Coordination of female students\' affairs and welfare'
     }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="relative h-64 bg-gradient-to-r from-[#00703C] to-[#005A30]">
+      <div className="relative h-64 bg-gradient-to-r from-[#00703C] to-[#005A30] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Executive Committee Background"
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white">Our Executive Committee</h1>
         </div>
@@ -78,7 +85,7 @@ const OurExecutivesPage: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {executives.map((executive, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-64 overflow-hidden">
+              <div className="w-full aspect-[1280/1300] overflow-hidden">
                 <img
                   src={executive.image}
                   alt={executive.position}
