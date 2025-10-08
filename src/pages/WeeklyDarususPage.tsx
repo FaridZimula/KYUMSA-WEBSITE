@@ -1,35 +1,39 @@
 import React from 'react';
-import { Calendar, Clock, MapPin, User } from 'lucide-react';
+import { Clock, MapPin, User } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const WeeklyDarususPage: React.FC = () => {
   const weeklySchedule = [
     {
       day: 'Friday',
-      topic: 'Tafsir of Selected Verses',
-      time: '2:00 PM - 4:00 PM',
-      speaker: 'Sheikh Ahmed Hassan',
-      description: 'In-depth analysis and interpretation of selected Quranic verses with practical applications for daily life.'
+      topic: 'Family Darusu',
+      time: 'After Aswir Prayers',
+      speaker: 'Shk Ashraf Mutagubya',
+      location: 'KYUMSA MOSQUE',
+      description: 'Join us for our weekly Family Darusu where we discuss Islamic teachings and their practical applications in family life and daily living.',
+      image: 'https://images.pexels.com/photos/6303760/pexels-photo-6303760.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300'
     },
     {
-      day: 'Saturday',
-      topic: 'Hadith Studies',
-      time: '3:00 PM - 5:00 PM',
-      speaker: 'Sheikh Ibrahim Musa',
-      description: 'Study of authentic Hadith from Sahih Bukhari and Muslim with commentary and lessons.'
-    },
-    {
-      day: 'Sunday',
-      topic: 'Fiqh and Islamic Jurisprudence',
-      time: '10:00 AM - 12:00 PM',
-      speaker: 'Sheikh Mohammed Ali',
-      description: 'Understanding Islamic law and its application in contemporary issues facing students.'
+      day: 'Thursday',
+      topic: 'Nakasero Darusu',
+      time: 'After Maghrib Prayers',
+      speaker: 'Shk Yusuf ali bulafu',
+      location: 'Nanziri Kennedy Grounds',
+      description: 'A comprehensive study session covering various aspects of Islamic knowledge including Quran, Hadith, and contemporary Islamic issues.',
+      image: 'https://images.pexels.com/photos/8985523/pexels-photo-8985523.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300'
     }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="relative h-64 bg-gradient-to-r from-[#00703C] to-[#005A30]">
+      <div className="relative h-64 bg-gradient-to-r from-[#00703C] to-[#005A30] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Weekly Darusus Background"
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white">Weekly Darusus</h1>
         </div>
@@ -44,30 +48,41 @@ const WeeklyDarususPage: React.FC = () => {
 
         <div className="space-y-8 mb-12">
           {weeklySchedule.map((session, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-2xl font-bold text-[#00703C] mb-2 md:mb-0">{session.topic}</h3>
-                <span className="inline-block bg-[#00703C] text-white px-4 py-2 rounded-md font-semibold">
-                  {session.day}
-                </span>
-              </div>
+            <div key={index} className="bg-[#00703C] text-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="w-full aspect-[1280/1300] overflow-hidden">
+                  <img
+                    src={session.image}
+                    alt={session.topic}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-8 flex flex-col justify-center">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2 md:mb-0">{session.topic}</h3>
+                    <span className="inline-block bg-[#FFD300] text-black px-4 py-2 rounded-md font-semibold text-sm w-fit">
+                      {session.day}
+                    </span>
+                  </div>
 
-              <div className="grid md:grid-cols-3 gap-4 mb-4">
-                <div className="flex items-center space-x-2 text-gray-700">
-                  <Clock className="h-5 w-5 text-[#00703C]" />
-                  <span>{session.time}</span>
-                </div>
-                <div className="flex items-center space-x-2 text-gray-700">
-                  <User className="h-5 w-5 text-[#00703C]" />
-                  <span>{session.speaker}</span>
-                </div>
-                <div className="flex items-center space-x-2 text-gray-700">
-                  <MapPin className="h-5 w-5 text-[#00703C]" />
-                  <span>University Mosque</span>
+                  <div className="space-y-3 mb-4">
+                    <div className="flex items-center space-x-2">
+                      <User className="h-5 w-5 text-[#FFD300]" />
+                      <span className="font-semibold">{session.speaker}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Clock className="h-5 w-5 text-[#FFD300]" />
+                      <span>{session.time}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <MapPin className="h-5 w-5 text-[#FFD300]" />
+                      <span>{session.location}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-gray-100 leading-relaxed">{session.description}</p>
                 </div>
               </div>
-
-              <p className="text-gray-700">{session.description}</p>
             </div>
           ))}
         </div>

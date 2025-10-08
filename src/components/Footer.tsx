@@ -5,10 +5,10 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-[#00703C] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8 text-justify md:text-left">
+        <div className="grid md:grid-cols-4 gap-8 text-justify">
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold text-white mb-4">KYUMSA</h3>
-            <p className="text-gray-100 mb-4 text-justify md:text-left">
+            <p className="text-gray-100 mb-4 text-justify">
               Kyambogo University Muslim Students Association is dedicated to fostering Islamic values, academic excellence, and community service among Muslim students at Kyambogo University.
             </p>
             <div className="space-y-2 text-sm">
