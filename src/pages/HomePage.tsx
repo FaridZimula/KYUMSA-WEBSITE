@@ -107,10 +107,12 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${slide.image})` }}
-            >
+            <div className="absolute inset-0">
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-r from-[#00703C]/80 to-[#005A30]/70" />
             </div>
             <div className="relative h-full flex items-center px-4 md:px-8 lg:px-16">

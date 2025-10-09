@@ -28,9 +28,11 @@ const LogoAnimation: React.FC<LogoAnimationProps> = ({ onComplete }) => {
       <div className="text-center">
         <div className="relative">
           <div className="animate-pulse mb-8">
-            <div className="w-48 h-48 bg-gray-200 mx-auto rounded-lg flex items-center justify-center shadow-lg">
-              <span className="text-gray-400 text-sm">Logo Space</span>
-            </div>
+            <img
+              src="/kyumsa log_page-0001.png"
+              alt="KYUMSA Logo"
+              className="w-64 h-64 mx-auto object-contain"
+            />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-[#00703C] mb-2 animate-fade-in">
             KYUMSA
