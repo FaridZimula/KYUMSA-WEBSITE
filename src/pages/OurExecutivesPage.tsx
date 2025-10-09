@@ -7,55 +7,55 @@ const OurExecutivesPage: React.FC = () => {
     {
       name: 'Chairman',
       position: 'Chairperson',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: 'https://image9004.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Overall leadership and strategic direction of KYUMSA'
     },
     {
       name: 'Vice Chairman',
       position: 'Vice Chairperson',
-      image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: 'https://imahoto-3785079.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Assists the Chairman and coordinates organizational activities'
     },
     {
       name: 'General Secretary',
       position: 'General Secretary',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: 'https://images.1239291.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Administrative coordination and communication management'
     },
     {
       name: 'Finance Secretary',
       position: 'Finance Secretary',
-      image: 'https://images.pexels.com/photos/2102415/pexels-photo-2102415.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: 'https://imageo-2102415.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Financial management and budgeting'
     },
     {
       name: 'Publicity Secretary',
       position: 'Publicity Secretary',
-      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: 'https://im38/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Marketing, communications, and public relations'
     },
     {
       name: 'Da\'wah Secretary',
       position: 'Da\'wah Secretary',
-      image: 'https://images.pexels.com/photos/3184432/pexels-photo-3184432.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: 'https://images.pexelss&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Islamic outreach and awareness programs'
     },
     {
       name: 'Academic Secretary',
       position: 'Academic Secretary',
-      image: 'https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: 'https://images.pexels.com/photos/3184296/pexels-phoress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Academic support and educational programs'
     },
     {
       name: 'Sports Secretary',
       position: 'Sports Secretary',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Sports activities and physical wellness programs'
     },
     {
       name: 'Sisters\' Representative',
       position: 'Sisters\' Representative',
-      image: 'https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: 'https://imagexels-photo-3184639eg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       responsibilities: 'Coordination of female students\' affairs and welfare'
     }
   ];

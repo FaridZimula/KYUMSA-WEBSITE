@@ -5,12 +5,12 @@ import Footer from '../components/Footer';
 const OurEventsPage: React.FC = () => {
   const upcomingEvents = [
     {
-      title: 'Annual Islamic Conference',
-      date: 'December 15, 2025',
+      title: 'KYUMSA-KYUMA RE-UNION',
+      date: 'October 9, 2025',
       time: '9:00 AM - 5:00 PM',
       location: 'University Main Hall',
       attendees: '500+',
-      image: 'https://images.pexels.com/photos/2774556/pexels-photo-2774556.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: '',
       description: 'A full-day conference featuring renowned Islamic scholars discussing contemporary issues facing Muslim youth in higher education.'
     },
     {
@@ -39,24 +39,6 @@ const OurEventsPage: React.FC = () => {
       attendees: '300+',
       image: 'https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
       description: 'Annual sports tournament featuring football, volleyball, athletics, and other sports activities.'
-    },
-    {
-      title: 'Community Charity Drive',
-      date: 'November 30, 2025',
-      time: '9:00 AM - 5:00 PM',
-      location: 'Campus Grounds',
-      attendees: '150+',
-      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
-      description: 'Collecting donations and distributing essential items to underprivileged communities around the university.'
-    },
-    {
-      title: 'Islamic Arts & Culture Exhibition',
-      date: 'February 10, 2026',
-      time: '10:00 AM - 4:00 PM',
-      location: 'Student Center',
-      attendees: '400+',
-      image: 'https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
-      description: 'Showcase of Islamic calligraphy, poetry, traditional crafts, and cultural performances.'
     }
   ];
 

@@ -42,7 +42,7 @@ const ContactUsPage: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&cs=tinysrgb&w=1260)'
+            backgroundImage: '/kyumsa mosque.jpg'
           }}
         ></div>
         <div className="absolute inset-0 flex items-center justify-center">

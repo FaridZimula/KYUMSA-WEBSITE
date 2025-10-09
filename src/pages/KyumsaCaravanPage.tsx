@@ -54,7 +54,7 @@ const KyumsaCaravanPage: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1260)'
+            backgroundImage: '/Health Out Reach.jpg'
           }}
         ></div>
         <div className="absolute inset-0 flex items-center justify-center">
@@ -63,24 +63,24 @@ const KyumsaCaravanPage: React.FC = () => {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-16">
-        <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">About The Caravan</h2>
+        <div className="bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg shadow-xl p-8 md:p-12 mb-12">
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">Message from Our Caravan Amir</h2>
           <div className="flex flex-col md:flex-row gap-8 items-start">
             <div className="flex-1">
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              <p className="text-lg text-white leading-relaxed mb-4">
                 The KYUMSA Caravan is our flagship community outreach program that takes the spirit of Islamic charity directly to communities in need. This mobile initiative represents our commitment to serving humanity and embodying the teachings of compassion and generosity in Islam.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              <p className="text-lg text-white leading-relaxed mb-6">
                 Through the Caravan, we mobilize students, volunteers, and resources to reach remote and underserved areas, providing essential services including medical care, food distribution, educational support, and community development projects. The program runs year-round with special emphasis during Ramadan and other significant occasions.
               </p>
-              <button className="bg-[#00703C] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#005A30] transition-colors">
+              <button className="bg-[#FFD300] text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-[#FFC700] transition-colors">
                 Read Full Message
               </button>
             </div>
             <div className="w-full md:w-64 flex-shrink-0">
               <img
-                src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400&h=500"
-                alt="Chairman"
+                src="/Allan copy.jpg"
+                alt="Caravan Amir"
                 className="w-full rounded-lg shadow-lg object-cover aspect-[4/5]"
               />
             </div>
