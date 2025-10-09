@@ -49,9 +49,11 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage, onNavigate }) => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <div className="w-16 h-16 bg-gray-200 flex items-center justify-center rounded-md">
-                <span className="text-xs text-gray-500">Logo</span>
-              </div>
+              <img
+                src="/kyumsa log_page-0001.png"
+                alt="KYUMSA Logo"
+                className="h-16 w-auto object-contain"
+              />
             </div>
           </div>
 
