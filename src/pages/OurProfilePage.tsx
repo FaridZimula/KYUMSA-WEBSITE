@@ -8,7 +8,7 @@ const OurProfilePage: React.FC = () => {
       <div className="relative h-64 bg-gradient-to-r from-[#00703C] to-[#005A30] overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="/Kyumsa Men.jpg"
             alt="Our Profile Background"
             className="w-full h-full object-cover opacity-30"
           />

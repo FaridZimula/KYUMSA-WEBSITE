@@ -11,7 +11,7 @@ const WeeklyDarususPage: React.FC = () => {
       speaker: 'Shk Ashraf Mutagubya',
       location: 'KYUMSA MOSQUE',
       description: 'Join us for our weekly Family Darusu where we discuss Islamic teachings and their practical applications in family life and daily living.',
-      image: 'https://images.pexels.com/photos/6303760/pexels-photo-6303760.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300'
+      image: '/Family Darus.jpg'
     },
     {
       day: 'Thursday',
@@ -20,7 +20,16 @@ const WeeklyDarususPage: React.FC = () => {
       speaker: 'Shk Yusuf ali bulafu',
       location: 'Nanziri Kennedy Grounds',
       description: 'A comprehensive study session covering various aspects of Islamic knowledge including Quran, Hadith, and contemporary Islamic issues.',
-      image: 'https://images.pexels.com/photos/8985523/pexels-photo-8985523.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300'
+      image: '/Nakasero darus.jpg'
+    },
+        {
+      day: 'Friday',
+      topic: 'Family Tea Gathering',
+      time: 'After Ishae Prayers',
+      speaker: 'Everyone',
+      location: 'At Any Chosen Hall Of Residence',
+      description: 'Join Us as we gather for tea, snacks, and engaging conversations on various topics related to Islam and student life.',
+      image: '/Tea Gathering.jpg'
     }
   ];
 
@@ -29,7 +38,7 @@ const WeeklyDarususPage: React.FC = () => {
       <div className="relative h-64 bg-gradient-to-r from-[#00703C] to-[#005A30] overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="/kyumsa mosque.jpg"
             alt="Weekly Darusus Background"
             className="w-full h-full object-cover opacity-30"
           />

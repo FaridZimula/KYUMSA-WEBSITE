@@ -11,21 +11,21 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
   const slides = [
     {
-      image: 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1920',
+      image: '/kyumsa mosque.jpg',
       title: 'Welcome to KYUMSA',
       description: 'Kyambogo University Muslim Students Association',
       buttonText: 'Learn More',
       buttonLink: 'our-profile'
     },
     {
-      image: 'https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1920',
+      image: '/Slider 2.jpg',
       title: 'Join Our Community',
       description: 'Building Unity Through Faith and Education',
       buttonText: 'View Events',
       buttonLink: 'our-events'
     },
     {
-      image: 'https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg?auto=compress&cs=tinysrgb&w=1920',
+      image: '/Slide 4.jpg',
       title: 'Academic Excellence',
       description: 'Empowering Students for Success',
       buttonText: 'Explore Darusus',
@@ -40,7 +40,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       time: '2:00 PM - 4:00 PM',
       location: 'Kyambogo University Mosque',
       description: 'Join us for our weekly study sessions covering various Islamic topics',
-      image: 'https://images.pexels.com/photos/6303760/pexels-photo-6303760.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: '/Reunion.jpg',
       color: 'green'
     },
     {
@@ -49,7 +49,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       time: '9:00 AM - 5:00 PM',
       location: 'Campus Main Hall',
       description: 'Community outreach program supporting underprivileged families',
-      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: '/executive meeting.jpg',
       color: 'gray'
     },
     {
@@ -58,7 +58,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       time: 'Daily at Sunset',
       location: 'University Mosque',
       description: 'Daily community iftar meals during the holy month of Ramadan',
-      image: 'https://images.pexels.com/photos/6210749/pexels-photo-6210749.jpeg?auto=compress&cs=tinysrgb&w=1280&h=1300',
+      image: '/General assembly.jpg',
       color: 'black'
     }
   ];

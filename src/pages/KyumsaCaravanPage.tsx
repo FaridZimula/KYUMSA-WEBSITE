@@ -32,18 +32,18 @@ const KyumsaCaravanPage: React.FC = () => {
 
   const activities = [
     {
-      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300',
-      title: 'Rural Community Outreach',
+      image: '/Health Out Reach.jpg',
+      title: 'Community Health Outreach',
       description: 'Our team visiting remote villages to provide essential services and support'
     },
     {
-      image: 'https://images.pexels.com/photos/6647034/pexels-photo-6647034.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300',
-      title: 'Medical Camp Setup',
-      description: 'Setting up temporary medical facilities to serve community members'
+      image: '/KYUMSA Clean up.jpg',
+      title: 'Community Clean Up',
+      description: 'Organizing community clean-up drives to promote environmental awareness'
     },
     {
-      image: 'https://images.pexels.com/photos/6994982/pexels-photo-6994982.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300',
-      title: 'Food Distribution Drive',
+      image: '/Daily Darus Cover image.jpg',
+      title: 'Dawa Outreach',
       description: 'Distributing food packages to families affected by economic hardships'
     }
   ];

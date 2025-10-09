@@ -7,7 +7,7 @@ const ChairmanMessagePage: React.FC = () => {
       <div className="relative h-64 bg-gradient-to-r from-[#00703C] to-[#005A30] overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="/kyumsa mosque.jpg"
             alt="Chairman Message Background"
             className="w-full h-full object-cover opacity-30"
           />
@@ -20,7 +20,7 @@ const ChairmanMessagePage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 gap-8 items-start">
           <div className="pr-0 md:pr-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#00703C]">Message from President</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#00703C]">Message from Our Chairman</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
                 Welcome to KYUCSA, where innovation meets opportunity. As your president, I'm excited to lead an organization that has consistently championed academic excellence and professional development in computing.
@@ -36,13 +36,13 @@ const ChairmanMessagePage: React.FC = () => {
           <div className="relative">
             <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden shadow-xl">
               <img
-                src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/Chairman's image.jpg"
                 alt="President"
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-[#00703C] text-white p-4">
-                <h3 className="text-xl font-bold">H.E ZIMULA FARID</h3>
-                <p className="text-sm">KYUCSA PRESIDENT</p>
+                <h3 className="text-xl font-bold">SSAGALA LUQMAN</h3>
+                <p className="text-sm">CHAIRMAN KYUMSA</p>
               </div>
             </div>
           </div>

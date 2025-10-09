@@ -12,14 +12,14 @@ const DailyDarususPage: React.FC = () => {
           instructor: 'Shk Sayyid Muhammad Lukenge',
           location: 'KYUMSA MOSQUE',
           time: 'After Maghrib prayers',
-          image: 'https://images.pexels.com/photos/8728382/pexels-photo-8728382.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300'
+          image: '/Monday Darus.jpg'
         },
         {
           title: 'Ladies Halaq',
           instructor: 'Imaam Lithiwan Muweesi',
           location: 'KYUMSA MOSQUE',
           time: 'After Aswir prayers',
-          image: 'https://images.pexels.com/photos/8728557/pexels-photo-8728557.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300'
+          image: '/Ladies Halaq.jpg'
         }
       ]
     },
@@ -31,14 +31,14 @@ const DailyDarususPage: React.FC = () => {
           instructor: 'Shk Yusuf Ali Bulafu',
           location: 'KYUMSA MOSQUE',
           time: 'After Maghrib prayers',
-          image: 'https://images.pexels.com/photos/6297183/pexels-photo-6297183.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300'
+          image: '/tuesday darus.jpg'
         },
         {
           title: 'Fiqh Darusu',
           instructor: 'Shk Kizito Ibrahim',
           location: 'KYUMSA MOSQUE',
           time: 'After Aswir prayers',
-          image: 'https://images.pexels.com/photos/5206040/pexels-photo-5206040.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300'
+          image: '/FIQH DARUS.jpg'
         }
       ]
     },
@@ -50,7 +50,7 @@ const DailyDarususPage: React.FC = () => {
           instructor: 'Mr Kabagambe Musa',
           location: 'Nanziri Kennedy Grounds',
           time: 'After Ishae prayers',
-          image: 'https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300'
+          image: '/Kennedy Darusu.jpg'
         }
       ]
     },
@@ -62,21 +62,21 @@ const DailyDarususPage: React.FC = () => {
           instructor: 'Shk Kizito Ibrahim',
           location: 'KYUMSA MOSQUE',
           time: 'After Aswir prayers',
-          image: 'https://images.pexels.com/photos/8923308/pexels-photo-8923308.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300'
+          image: '/Gents Halaq.jpg'
         },
         {
           title: 'Ladies Quran Darusu',
           instructor: 'Shk Umar Saddamu Musinguzi & Sheikhat Taqqiya Katende',
           location: 'KYUMSA MOSQUE',
           time: 'After Aswir prayers',
-          image: 'https://images.pexels.com/photos/7249202/pexels-photo-7249202.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300'
+          image: '/Ladies Quran Darusu.jpg'
         },
         {
           title: 'Nakasero Darusu',
           instructor: 'Shk Yusuf Ali Bulafu',
           location: 'Nakasero',
           time: 'After Maghrib prayers',
-          image: 'https://images.pexels.com/photos/4195325/pexels-photo-4195325.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300'
+          image: '/Nakasero darus.jpg'
         }
       ]
     },
@@ -88,14 +88,14 @@ const DailyDarususPage: React.FC = () => {
           instructor: 'Shk Ashraf Mutagubya',
           location: 'KYUMSA MOSQUE',
           time: 'After Aswir prayers',
-          image: 'https://images.pexels.com/photos/8923287/pexels-photo-8923287.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300'
+          image: '/Family Darus.jpg'
         },
         {
           title: 'Family Tea Gathering',
           instructor: 'Community Event',
           location: 'Chosen hall of residence',
           time: 'After Ishae prayers',
-          image: 'https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300'
+          image: '/Tea Gathering.jpg'
         }
       ]
     },
@@ -107,7 +107,7 @@ const DailyDarususPage: React.FC = () => {
           instructor: 'Shk Muluga Mahad',
           location: 'BANDA MOSQUE',
           time: 'After Maghrib prayers',
-          image: 'https://images.pexels.com/photos/8923364/pexels-photo-8923364.jpeg?auto=compress&cs=tinysrgb&w=1270&h=1300'
+          image: '/Banda Darus.jpg'
         }
       ]
     }
@@ -119,7 +119,7 @@ const DailyDarususPage: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=1260)'
+            backgroundImage: '/Daily Darus Cover image.jpg'
           }}
         ></div>
         <div className="absolute inset-0 flex items-center justify-center">
