@@ -48,7 +48,7 @@ const WeeklyDarususPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-16">
+      <div className="max-w-5xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Join us every week for comprehensive Islamic studies sessions. Our weekly Dars programs cover various aspects of Islamic knowledge including Tafsir, Hadith, and Fiqh, conducted by experienced scholars.
@@ -58,15 +58,15 @@ const WeeklyDarususPage: React.FC = () => {
         <div className="space-y-8 mb-12">
           {weeklySchedule.map((session, index) => (
             <div key={index} className="bg-[#00703C] text-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="grid md:grid-cols-2 gap-0">
-                <div className="w-full aspect-[1280/1300] overflow-hidden">
+              <div className="grid md:grid-cols-[350px_1fr] gap-0">
+                <div className="w-full aspect-[1280/1300] md:w-[350px] md:h-[356px] overflow-hidden flex-shrink-0">
                   <img
                     src={session.image}
                     alt={session.topic}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="p-8 flex flex-col justify-center">
+                <div className="py-8 px-6 md:px-8 flex flex-col justify-center">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <h3 className="text-2xl md:text-3xl font-bold mb-2 md:mb-0">{session.topic}</h3>
                     <span className="inline-block bg-[#FFD300] text-black px-4 py-2 rounded-md font-semibold text-sm w-fit">
@@ -96,27 +96,27 @@ const WeeklyDarususPage: React.FC = () => {
           ))}
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Important Information</h2>
-          <div className="space-y-4 text-gray-700">
+        <div className="bg-black rounded-lg shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-white mb-6">Important Information</h2>
+          <div className="space-y-4 text-white">
             <div className="flex items-start space-x-3">
-              <div className="w-2 h-2 bg-[#00703C] rounded-full mt-2"></div>
+              <div className="w-2 h-2 bg-[#FFD300] rounded-full mt-2"></div>
               <p><strong>Location:</strong> All sessions are held at the Kyambogo University Mosque</p>
             </div>
             <div className="flex items-start space-x-3">
-              <div className="w-2 h-2 bg-[#00703C] rounded-full mt-2"></div>
+              <div className="w-2 h-2 bg-[#FFD300] rounded-full mt-2"></div>
               <p><strong>Attendance:</strong> Open to all students, both male and female (separate seating arrangements available)</p>
             </div>
             <div className="flex items-start space-x-3">
-              <div className="w-2 h-2 bg-[#00703C] rounded-full mt-2"></div>
+              <div className="w-2 h-2 bg-[#FFD300] rounded-full mt-2"></div>
               <p><strong>Materials:</strong> Please bring your own Quran and notebook for taking notes</p>
             </div>
             <div className="flex items-start space-x-3">
-              <div className="w-2 h-2 bg-[#00703C] rounded-full mt-2"></div>
+              <div className="w-2 h-2 bg-[#FFD300] rounded-full mt-2"></div>
               <p><strong>Questions:</strong> Q&A sessions are held after each lesson for clarifications</p>
             </div>
             <div className="flex items-start space-x-3">
-              <div className="w-2 h-2 bg-[#00703C] rounded-full mt-2"></div>
+              <div className="w-2 h-2 bg-[#FFD300] rounded-full mt-2"></div>
               <p><strong>Language:</strong> Sessions are conducted in English and Arabic with explanations in local languages when necessary</p>
             </div>
           </div>

@@ -34,10 +34,7 @@ const LogoAnimation: React.FC<LogoAnimationProps> = ({ onComplete }) => {
               className="w-64 h-64 mx-auto object-contain"
             />
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-[#00703C] mb-2 animate-fade-in">
-            KYUMSA
-          </h1>
-          <p className="text-lg md:text-xl text-gray-700 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <p className="text-lg md:text-xl text-gray-700 animate-fade-in">
             Kyambogo University Muslim Students Association
           </p>
         </div>

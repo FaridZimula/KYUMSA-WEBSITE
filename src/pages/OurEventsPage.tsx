@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, MapPin, Users, Award, Heart } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const OurEventsPage: React.FC = () => {
-  const upcomingEvents = [
+  const defaultUpcomingEvents = [
     {
       title: 'KYUMSA-KYUMA RE-UNION',
       date: 'October 9, 2025',
@@ -41,6 +41,57 @@ const OurEventsPage: React.FC = () => {
       description: 'Annual sports tournament featuring football, volleyball, athletics, and other sports activities.'
     }
   ];
+
+  const [upcomingEvents, setUpcomingEvents] = useState(defaultUpcomingEvents);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('events');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setUpcomingEvents(parsed);
+        }
+      } catch (e) {
+        console.error('Error loading events:', e);
+      }
+    }
+  }, []);
+
+  // Listen for storage changes and admin save events
+  useEffect(() => {
+    const loadData = () => {
+      const saved = localStorage.getItem('events');
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setUpcomingEvents(parsed);
+          }
+        } catch (e) {
+          console.error('Error loading events:', e);
+        }
+      }
+    };
+
+    const handleStorageChange = () => loadData();
+    const handleAdminSave = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail === 'events') {
+        loadData();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('focus', handleStorageChange);
+    window.addEventListener('adminDataSaved', handleAdminSave as EventListener);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('focus', handleStorageChange);
+      window.removeEventListener('adminDataSaved', handleAdminSave as EventListener);
+    };
+  }, []);
 
   const pastEvents = [
     {

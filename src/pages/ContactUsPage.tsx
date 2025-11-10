@@ -39,14 +39,15 @@ const ContactUsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="relative h-80 bg-gradient-to-r from-[#00703C] to-[#005A30] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: '/kyumsa mosque.jpg'
-          }}
-        ></div>
+        <div className="absolute inset-0">
+          <img
+            src="/kyumsa mosque.jpg"
+            alt="Contact Us Background"
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white z-10">Contact Us</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-white">Contact Us</h1>
         </div>
       </div>
 
@@ -68,7 +69,7 @@ const ContactUsPage: React.FC = () => {
             </a>
           </div>
 
-          <div className="bg-gradient-to-br from-[#FFD300] to-[#FFA500] rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
+          <div className="bg-black rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
             <div className="bg-white bg-opacity-20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
               <MapPin className="h-8 w-8 text-white" />
             </div>

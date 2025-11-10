@@ -74,6 +74,20 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     'Academic Excellence'
   ];
 
+  const corporatePartners = [
+    { name: 'MUB SMSA', image: '/logos/mub-smsa-logo.png' },
+    { name: 'MSAU', image: '/logos/msau-logo.png' },
+    { name: 'Kyambogo University', image: '/logos/kyambogo-university-logo.png' },
+    { name: 'MUMSA', image: '/logos/mumsa-logo.png' }
+  ];
+
+  // Create array of 9 partners by repeating the logos
+  const partnersForCarousel = [
+    ...corporatePartners,
+    ...corporatePartners,
+    corporatePartners[0]
+  ];
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -88,9 +102,9 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <h3 className="text-sm font-semibold text-gray-700"># Top Tags</h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-nowrap md:flex-wrap gap-2 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0 scrollbar-hide">
               {tags.map((tag, index) => (
-                <span key={index} className="px-3 py-1.5 bg-[#00703C] text-white text-xs font-medium rounded hover:bg-[#005A30] transition-colors cursor-pointer">
+                <span key={index} className="px-3 py-1.5 bg-[#00703C] text-white text-xs font-medium rounded hover:bg-[#005A30] transition-colors cursor-pointer whitespace-nowrap flex-shrink-0">
                   {tag}
                 </span>
               ))}
@@ -111,7 +125,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover opacity-80"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-[#00703C]/80 to-[#005A30]/70" />
             </div>
@@ -149,8 +163,8 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 text-justify">What We Do</h2>
-          <p className="text-gray-600 mb-12 max-w-2xl text-justify">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 text-center">What We Do</h2>
+          <p className="text-gray-600 mb-12 max-w-2xl mx-auto text-center">
             Discover our diverse programs and activities designed to nurture faith, excellence, and community service
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 px-8">
@@ -160,8 +174,8 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <Users className="h-12 w-12 mb-4" />
                   <h3 className="text-xl font-semibold">Community Building</h3>
                 </div>
-                <div className="absolute inset-0 bg-white border-2 border-[#00703C] rounded-lg p-6 flex items-center justify-center text-gray-800 backface-hidden rotate-y-180">
-                  <p className="text-sm text-justify">Fostering unity and brotherhood among Muslim students through regular gatherings and activities</p>
+                <div className="absolute inset-0 bg-black rounded-lg p-6 flex items-center justify-center text-white backface-hidden rotate-y-180">
+                  <p className="text-sm text-center">Fostering unity and brotherhood among Muslim students through regular gatherings and activities</p>
                 </div>
               </div>
             </div>
@@ -171,8 +185,8 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <Calendar className="h-12 w-12 mb-4" />
                   <h3 className="text-xl font-semibold">Islamic Studies</h3>
                 </div>
-                <div className="absolute inset-0 bg-white border-2 border-[#00703C] rounded-lg p-6 flex items-center justify-center text-gray-800 backface-hidden rotate-y-180">
-                  <p className="text-sm text-justify">Weekly and daily Darusus sessions to deepen understanding of Islamic knowledge and practice</p>
+                <div className="absolute inset-0 bg-black rounded-lg p-6 flex items-center justify-center text-white backface-hidden rotate-y-180">
+                  <p className="text-sm text-center">Weekly and daily Darusus sessions to deepen understanding of Islamic knowledge and practice</p>
                 </div>
               </div>
             </div>
@@ -182,8 +196,8 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <MapPin className="h-12 w-12 mb-4" />
                   <h3 className="text-xl font-semibold">Charity Work</h3>
                 </div>
-                <div className="absolute inset-0 bg-white border-2 border-[#00703C] rounded-lg p-6 flex items-center justify-center text-gray-800 backface-hidden rotate-y-180">
-                  <p className="text-sm text-justify">Organizing outreach programs and supporting underprivileged communities through regular initiatives</p>
+                <div className="absolute inset-0 bg-black rounded-lg p-6 flex items-center justify-center text-white backface-hidden rotate-y-180">
+                  <p className="text-sm text-center">Organizing outreach programs and supporting underprivileged communities through regular initiatives</p>
                 </div>
               </div>
             </div>
@@ -193,15 +207,15 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <Mail className="h-12 w-12 mb-4" />
                   <h3 className="text-xl font-semibold">Student Support</h3>
                 </div>
-                <div className="absolute inset-0 bg-white border-2 border-[#00703C] rounded-lg p-6 flex items-center justify-center text-gray-800 backface-hidden rotate-y-180">
-                  <p className="text-sm text-justify">Providing academic guidance, mentorship, and resources to help students excel in their studies</p>
+                <div className="absolute inset-0 bg-black rounded-lg p-6 flex items-center justify-center text-white backface-hidden rotate-y-180">
+                  <p className="text-sm text-center">Providing academic guidance, mentorship, and resources to help students excel in their studies</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 mt-16 text-justify">Upcoming Events</h2>
-          <p className="text-gray-600 mb-12 max-w-2xl text-justify">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 mt-16 text-center">Upcoming Events</h2>
+          <p className="text-gray-600 mb-12 max-w-2xl mx-auto text-center">
             Stay connected with our community through various events and activities throughout the year
           </p>
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8">
@@ -241,6 +255,64 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             >
               View All Events
             </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 text-center">Our Corporate Partners</h2>
+          <p className="text-gray-600 mb-12 max-w-2xl mx-auto text-center">
+            We are grateful for the support of our valued partners who help us achieve our mission
+          </p>
+          
+          <div className="relative overflow-hidden">
+            <div className="flex animate-scroll-slow">
+              {/* First set of partners */}
+              {partnersForCarousel.map((partner, index) => (
+                <div
+                  key={`partner-${index}`}
+                  className="flex-shrink-0 mx-6 md:mx-8 w-40 md:w-48 h-28 md:h-32 flex items-center justify-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-4"
+                >
+                  <img 
+                    src={partner.image} 
+                    alt={partner.name} 
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      // Fallback if image doesn't exist
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        parent.innerHTML = `<div class="w-full h-full bg-gray-200 rounded flex items-center justify-center"><span class="text-gray-500 text-xs md:text-sm font-medium text-center">${partner.name}</span></div>`;
+                      }
+                    }}
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {partnersForCarousel.map((partner, index) => (
+                <div
+                  key={`partner-duplicate-${index}`}
+                  className="flex-shrink-0 mx-6 md:mx-8 w-40 md:w-48 h-28 md:h-32 flex items-center justify-center bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-4"
+                >
+                  <img 
+                    src={partner.image} 
+                    alt={partner.name} 
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      // Fallback if image doesn't exist
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        parent.innerHTML = `<div class="w-full h-full bg-gray-200 rounded flex items-center justify-center"><span class="text-gray-500 text-xs md:text-sm font-medium text-center">${partner.name}</span></div>`;
+                      }
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

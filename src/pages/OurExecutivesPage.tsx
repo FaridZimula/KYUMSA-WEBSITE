@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const OurExecutivesPage: React.FC = () => {
-  const executives = [
+  const defaultExecutives = [
     {
       name: 'Chairman',
       position: 'Chairperson',
@@ -60,6 +60,57 @@ const OurExecutivesPage: React.FC = () => {
     }
   ];
 
+  const [executives, setExecutives] = useState(defaultExecutives);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('executives');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setExecutives(parsed);
+        }
+      } catch (e) {
+        console.error('Error loading executives:', e);
+      }
+    }
+  }, []);
+
+  // Listen for storage changes and admin save events
+  useEffect(() => {
+    const loadData = () => {
+      const saved = localStorage.getItem('executives');
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setExecutives(parsed);
+          }
+        } catch (e) {
+          console.error('Error loading executives:', e);
+        }
+      }
+    };
+
+    const handleStorageChange = () => loadData();
+    const handleAdminSave = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail === 'executives') {
+        loadData();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('focus', handleStorageChange);
+    window.addEventListener('adminDataSaved', handleAdminSave as EventListener);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('focus', handleStorageChange);
+      window.removeEventListener('adminDataSaved', handleAdminSave as EventListener);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="relative h-64 bg-gradient-to-r from-[#00703C] to-[#005A30] overflow-hidden">
@@ -93,9 +144,9 @@ const OurExecutivesPage: React.FC = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{executive.name}</h3>
-                <p className="text-[#00703C] font-semibold mb-3">{executive.position}</p>
-                <p className="text-gray-700 text-sm mb-4">{executive.responsibilities}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-1">{executive.name || 'Executive Name'}</h3>
+                <p className="text-[#00703C] font-semibold mb-3">{executive.position || 'Position'}</p>
+                <p className="text-gray-700 text-sm mb-4">{executive.responsibilities || 'Responsibilities'}</p>
                 <div className="flex flex-col space-y-2 text-sm text-gray-600">
                   <div className="flex items-center space-x-2">
                     <Mail className="h-4 w-4 text-[#00703C]" />

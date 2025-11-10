@@ -116,14 +116,15 @@ const DailyDarususPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="relative h-80 bg-gradient-to-r from-[#00703C] to-[#005A30] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: '/Daily Darus Cover image.jpg'
-          }}
-        ></div>
+        <div className="absolute inset-0">
+          <img
+            src="/Daily Darus Cover image.jpg"
+            alt="Daily Darusus Background"
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white z-10">Daily Darusus</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-white">Daily Darusus</h1>
         </div>
       </div>
 
@@ -137,33 +138,33 @@ const DailyDarususPage: React.FC = () => {
         <div className="space-y-12 mb-16">
           {weeklyDarusus.map((daySchedule, index) => (
             <div key={index}>
-              <div className="flex items-center mb-6">
+              <div className="flex items-center justify-center mb-6">
                 <Calendar className="h-6 w-6 text-[#00703C] mr-3" />
                 <h2 className="text-3xl font-bold text-gray-900">{daySchedule.day}</h2>
               </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid sm:grid-cols-2 lg:flex lg:flex-wrap lg:justify-center gap-6">
                 {daySchedule.sessions.map((session, sessionIndex) => (
                   <div
                     key={sessionIndex}
-                    className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                    className="bg-[#00703C] rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 w-full max-w-[350px]"
                   >
-                    <div className="aspect-[127/130] overflow-hidden">
+                    <div className="aspect-[127/130] md:w-[350px] md:h-[356px] overflow-hidden mx-auto">
                       <img
                         src={session.image}
                         alt={session.title}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="p-5">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{session.title}</h3>
-                      <p className="text-[#00703C] font-semibold mb-3">{session.instructor}</p>
-                      <div className="space-y-2 text-sm text-gray-600">
-                        <div className="flex items-start">
-                          <MapPin className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0 text-[#00703C]" />
+                    <div className="p-5 text-center">
+                      <h3 className="text-xl font-bold text-white mb-2">{session.title}</h3>
+                      <p className="text-white font-semibold mb-3">{session.instructor}</p>
+                      <div className="space-y-2 text-sm text-white">
+                        <div className="flex items-center justify-center">
+                          <MapPin className="h-4 w-4 mr-2 flex-shrink-0 text-[#FFD300]" />
                           <span>{session.location}</span>
                         </div>
-                        <div className="flex items-start">
-                          <Clock className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0 text-[#00703C]" />
+                        <div className="flex items-center justify-center">
+                          <Clock className="h-4 w-4 mr-2 flex-shrink-0 text-[#FFD300]" />
                           <span>{session.time}</span>
                         </div>
                       </div>
@@ -182,7 +183,7 @@ const DailyDarususPage: React.FC = () => {
               <div className="text-3xl font-bold text-white mb-2">15 min</div>
               <p className="text-white">Teaching & Recitation</p>
             </div>
-            <div className="text-center p-6 bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-lg">
+            <div className="text-center p-6 bg-black rounded-lg">
               <div className="text-3xl font-bold text-white mb-2">10 min</div>
               <p className="text-white">Discussion & Reflection</p>
             </div>

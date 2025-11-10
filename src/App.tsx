@@ -12,11 +12,29 @@ import ContactUsPage from './pages/ContactUsPage';
 import OurEventsPage from './pages/OurEventsPage';
 import KyumsaCaravanPage from './pages/KyumsaCaravanPage';
 import OurGalleryPage from './pages/OurGalleryPage';
+import AdminDashboard from './pages/AdminDashboard';
 import ChatBot from './components/ChatBot';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [showAnimation, setShowAnimation] = useState(true);
+
+  // Check URL hash on mount
+  React.useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      setCurrentPage(hash);
+    }
+  }, []);
+
+  // Update URL when page changes
+  React.useEffect(() => {
+    if (currentPage !== 'home') {
+      window.location.hash = currentPage;
+    } else {
+      window.location.hash = '';
+    }
+  }, [currentPage]);
 
   React.useEffect(() => {
     const handleNavigate = (event: Event) => {
@@ -58,6 +76,11 @@ function App() {
 
   if (showAnimation) {
     return <LogoAnimation onComplete={() => setShowAnimation(false)} />;
+  }
+
+  // Don't show navigation or chatbot on admin page
+  if (currentPage === 'admin') {
+    return <AdminDashboard />;
   }
 
   return (

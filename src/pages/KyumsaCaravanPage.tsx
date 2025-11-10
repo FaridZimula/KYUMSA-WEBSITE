@@ -1,8 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Truck, Heart, Users, Gift, Target } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const KyumsaCaravanPage: React.FC = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [caravanData, setCaravanData] = useState({
+    amirName: 'MUSINGUNZI ALLAN',
+    amirTitle: 'Caravan Amir 2025',
+    amirImage: "/Allan copy.jpg",
+    message: `The KYUMSA Caravan is our flagship community outreach program that takes the spirit of Islamic charity directly to communities in need. This mobile initiative represents our commitment to serving humanity and embodying the teachings of compassion and generosity in Islam.
+
+Through the Caravan, we mobilize students, volunteers, and resources to reach remote and underserved areas, providing essential services including medical care, food distribution, educational support, and community development projects. The program runs year-round with special emphasis during Ramadan and other significant occasions.`
+  });
+
+  useEffect(() => {
+    const saved = localStorage.getItem('caravanData');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        setCaravanData(parsed);
+      } catch (e) {
+        console.error('Error loading caravan data:', e);
+      }
+    }
+  }, []);
+
+  // Listen for storage changes and admin save events
+  useEffect(() => {
+    const loadData = () => {
+      const saved = localStorage.getItem('caravanData');
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          setCaravanData(parsed);
+        } catch (e) {
+          console.error('Error loading caravan data:', e);
+        }
+      }
+    };
+
+    const handleStorageChange = () => loadData();
+    const handleAdminSave = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail === 'caravanData') {
+        loadData();
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('focus', handleStorageChange);
+    window.addEventListener('adminDataSaved', handleAdminSave as EventListener);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('focus', handleStorageChange);
+      window.removeEventListener('adminDataSaved', handleAdminSave as EventListener);
+    };
+  }, []);
   const initiatives = [
     {
       title: 'Medical Outreach',
@@ -51,14 +105,15 @@ const KyumsaCaravanPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="relative h-80 bg-gradient-to-r from-[#00703C] to-[#005A30] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: '/Health Out Reach.jpg'
-          }}
-        ></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white z-10">The Kyumsa Caravan</h1>
+        <div className="absolute inset-0">
+          <img
+            src="/Health Out Reach.jpg"
+            alt="Kyumsa Caravan Background"
+            className="w-full h-full object-cover opacity-30"
+          />
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center">The Kyumsa Caravan</h1>
         </div>
       </div>
 
@@ -66,23 +121,36 @@ const KyumsaCaravanPage: React.FC = () => {
         <div className="bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg shadow-xl p-8 md:p-12 mb-12">
           <h2 className="text-3xl font-bold text-white mb-6 text-center">Message from Our Caravan Amir</h2>
           <div className="flex flex-col md:flex-row gap-8 items-start">
-            <div className="flex-1">
-              <p className="text-lg text-white leading-relaxed mb-4">
-                The KYUMSA Caravan is our flagship community outreach program that takes the spirit of Islamic charity directly to communities in need. This mobile initiative represents our commitment to serving humanity and embodying the teachings of compassion and generosity in Islam.
-              </p>
-              <p className="text-lg text-white leading-relaxed mb-6">
-                Through the Caravan, we mobilize students, volunteers, and resources to reach remote and underserved areas, providing essential services including medical care, food distribution, educational support, and community development projects. The program runs year-round with special emphasis during Ramadan and other significant occasions.
-              </p>
-              <button className="bg-[#FFD300] text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-[#FFC700] transition-colors">
-                Read Full Message
-              </button>
-            </div>
-            <div className="w-full md:w-64 flex-shrink-0">
+            <div className="w-full md:w-64 flex-shrink-0 order-1 md:order-2 relative">
               <img
-                src="/Allan copy.jpg"
+                src={caravanData.amirImage}
                 alt="Caravan Amir"
                 className="w-full rounded-lg shadow-lg object-cover aspect-[4/5]"
               />
+              <div className="absolute bottom-0 left-0 right-0 bg-[#FFD300] text-gray-900 p-3 rounded-b-lg text-center">
+                <h3 className="text-lg font-bold">{caravanData.amirName}</h3>
+                <p className="text-sm font-semibold">{caravanData.amirTitle}</p>
+              </div>
+            </div>
+            <div className="flex-1 order-2 md:order-1">
+              <div className="text-lg text-white leading-relaxed mb-4 whitespace-pre-line">
+                {isExpanded ? caravanData.message : caravanData.message.split('\n\n')[0]}
+              </div>
+              {isExpanded && caravanData.message.split('\n\n').length > 1 && (
+                <>
+                  {caravanData.message.split('\n\n').slice(1).map((paragraph, index) => (
+                    <p key={index} className="text-lg text-white leading-relaxed mb-4">
+                      {paragraph}
+                    </p>
+                  ))}
+                </>
+              )}
+              <button 
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="bg-[#FFD300] text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-[#FFC700] transition-colors"
+              >
+                {isExpanded ? 'Read Less' : 'Read Full Message'}
+              </button>
             </div>
           </div>
         </div>
@@ -131,7 +199,7 @@ const KyumsaCaravanPage: React.FC = () => {
           </div>
         </section>
 
-        <div className="bg-gradient-to-r from-[#00703C] to-[#005A30] rounded-lg shadow-xl p-8 md:p-12 text-white mb-12">
+        <div className="bg-gradient-to-r from-[#00703C] to-[#005A30] rounded-lg shadow-xl py-8 md:py-12 px-8 text-white mb-12">
           <h2 className="text-3xl font-bold mb-6 text-center">Impact Statistics</h2>
           <div className="grid md:grid-cols-4 gap-6 text-center">
             <div>
@@ -189,34 +257,34 @@ const KyumsaCaravanPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-xl p-8 md:p-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Upcoming Caravan Schedule</h2>
+        <div className="bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg shadow-xl p-8 md:p-12">
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">Upcoming Caravan Schedule</h2>
           <div className="space-y-4">
-            <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
-              <div className="bg-[#00703C] text-white px-4 py-2 rounded-md font-bold flex-shrink-0">
+            <div className="flex items-start space-x-4 p-4 bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg">
+              <div className="bg-white bg-opacity-20 text-white px-4 py-2 rounded-md font-bold flex-shrink-0">
                 DEC<br />15
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-1">Medical Outreach - Namuwongo</h3>
-                <p className="text-gray-700 text-sm">Free medical camp with doctors and nurses providing consultations and medicines</p>
+                <h3 className="font-semibold text-white mb-1">Medical Outreach - Namuwongo</h3>
+                <p className="text-white text-sm">Free medical camp with doctors and nurses providing consultations and medicines</p>
               </div>
             </div>
-            <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
-              <div className="bg-[#00703C] text-white px-4 py-2 rounded-md font-bold flex-shrink-0">
+            <div className="flex items-start space-x-4 p-4 bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg">
+              <div className="bg-white bg-opacity-20 text-white px-4 py-2 rounded-md font-bold flex-shrink-0">
                 JAN<br />10
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-1">Food Distribution - Katwe</h3>
-                <p className="text-gray-700 text-sm">Distribution of food packages to 100 families in the community</p>
+                <h3 className="font-semibold text-white mb-1">Food Distribution - Katwe</h3>
+                <p className="text-white text-sm">Distribution of food packages to 100 families in the community</p>
               </div>
             </div>
-            <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
-              <div className="bg-[#00703C] text-white px-4 py-2 rounded-md font-bold flex-shrink-0">
+            <div className="flex items-start space-x-4 p-4 bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg">
+              <div className="bg-white bg-opacity-20 text-white px-4 py-2 rounded-md font-bold flex-shrink-0">
                 FEB<br />05
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-1">Educational Support - Bwaise</h3>
-                <p className="text-gray-700 text-sm">Providing school supplies and books to 150 students</p>
+                <h3 className="font-semibold text-white mb-1">Educational Support - Bwaise</h3>
+                <p className="text-white text-sm">Providing school supplies and books to 150 students</p>
               </div>
             </div>
           </div>
