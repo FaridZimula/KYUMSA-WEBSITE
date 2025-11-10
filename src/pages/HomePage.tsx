@@ -75,10 +75,10 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   ];
 
   const corporatePartners = [
-    { name: 'MUB SMSA', image: '/logos/mub-smsa-logo.png' },
-    { name: 'MSAU', image: '/logos/msau-logo.png' },
-    { name: 'Kyambogo University', image: '/logos/kyambogo-university-logo.png' },
-    { name: 'MUMSA', image: '/logos/mumsa-logo.png' }
+    { name: 'MUB SMSA', image: '/Mubsmsa Logo.jpeg' },
+    { name: 'MSAU', image: '/MSAU.png' },
+    { name: 'Kyambogo University', image: '/Kyu Logo.jpeg' },
+    { name: 'MUMSA', image: '/Mumsa Logo.png' }
   ];
 
   // Create array of 9 partners by repeating the logos
