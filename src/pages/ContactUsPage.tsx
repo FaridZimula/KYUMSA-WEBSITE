@@ -214,6 +214,75 @@ const ContactUsPage: React.FC = () => {
             </div>
           </div>
         </div>
+
+        <div className="mt-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">Support Our Cause</h2>
+          <p className="text-lg text-gray-700 text-center max-w-3xl mx-auto mb-12">
+            Your generous contribution helps us continue our mission of supporting students and the community. Every donation makes a difference.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Airtel Money Card */}
+            <div className="bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg shadow-lg p-8">
+              <h3 className="text-2xl font-bold text-[#FFD300] mb-4">Airtel Money</h3>
+              <p className="text-white mb-6">
+                Use the details below to donate via Airtel Money.
+              </p>
+              <div className="mb-6">
+                <p className="text-white mb-2">
+                  <span className="font-semibold">Number:</span> +256 7XX XXX XXX
+                </p>
+                <p className="text-white">
+                  <span className="font-semibold">Name:</span> KYUMSA
+                </p>
+              </div>
+              <button className="w-full bg-[#FFD300] text-black px-6 py-3 rounded-md font-semibold hover:bg-[#FFA500] transition-colors">
+                Donate Now
+              </button>
+            </div>
+
+            {/* MTN MOMO Card */}
+            <div className="bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg shadow-lg p-8">
+              <h3 className="text-2xl font-bold text-[#FFD300] mb-4">MTN MOMO</h3>
+              <p className="text-white mb-6">
+                Use the details below to donate via MTN MOMO.
+              </p>
+              <div className="mb-6">
+                <p className="text-white mb-2">
+                  <span className="font-semibold">Number:</span> +256 7XX XXX XXX
+                </p>
+                <p className="text-white">
+                  <span className="font-semibold">Name:</span> KYUMSA
+                </p>
+              </div>
+              <button className="w-full bg-[#FFD300] text-black px-6 py-3 rounded-md font-semibold hover:bg-[#FFA500] transition-colors">
+                Donate Now
+              </button>
+            </div>
+
+            {/* Bank Transfer Card */}
+            <div className="bg-gradient-to-br from-[#00703C] to-[#005A30] rounded-lg shadow-lg p-8">
+              <h3 className="text-2xl font-bold text-[#FFD300] mb-4">Bank Transfer</h3>
+              <p className="text-white mb-6">
+                For direct bank deposits, use the details below.
+              </p>
+              <div className="mb-6">
+                <p className="text-white mb-2">
+                  <span className="font-semibold">Bank Name:</span> [Your Bank Name]
+                </p>
+                <p className="text-white mb-2">
+                  <span className="font-semibold">Account Name:</span> Kyambogo University Muslim Students Association
+                </p>
+                <p className="text-white">
+                  <span className="font-semibold">Account Number:</span> [Your Account Number]
+                </p>
+              </div>
+              <button className="w-full bg-[#FFD300] text-black px-6 py-3 rounded-md font-semibold hover:bg-[#FFA500] transition-colors">
+                Donate Now
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <Footer />

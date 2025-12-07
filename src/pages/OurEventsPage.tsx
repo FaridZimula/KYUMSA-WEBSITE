@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Clock, MapPin, Users, Award, Heart } from 'lucide-react';
+import { Calendar, MapPin, Users, Award, Heart } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const OurEventsPage: React.FC = () => {
@@ -139,35 +139,31 @@ const OurEventsPage: React.FC = () => {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Upcoming Events</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {upcomingEvents.map((event, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="aspect-[128/130] overflow-hidden">
+              <div key={index} className="bg-[#00703C] text-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <div className="relative h-[360px] flex items-center justify-center overflow-hidden bg-gray-100">
                   <img
                     src={event.image}
                     alt={event.title}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    className="max-h-[360px] max-w-full object-contain"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{event.title}</h3>
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <Calendar className="h-4 w-4 text-[#00703C]" />
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-semibold mb-3">{event.title}</h3>
+                  <div className="space-y-2 mb-4 flex flex-col items-center">
+                    <div className="flex items-center space-x-2 text-sm">
+                      <Calendar className="h-4 w-4" />
                       <span>{event.date}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <Clock className="h-4 w-4 text-[#00703C]" />
-                      <span>{event.time}</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <MapPin className="h-4 w-4 text-[#00703C]" />
+                    <div className="flex items-center space-x-2 text-sm">
+                      <MapPin className="h-4 w-4" />
                       <span>{event.location}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <Users className="h-4 w-4 text-[#00703C]" />
+                    <div className="flex items-center space-x-2 text-sm">
+                      <Users className="h-4 w-4" />
                       <span>{event.attendees} Expected</span>
                     </div>
                   </div>
-                  <p className="text-gray-700 text-sm">{event.description}</p>
+                  <p className="text-sm opacity-90 text-center">{event.description}</p>
                 </div>
               </div>
             ))}
@@ -178,18 +174,18 @@ const OurEventsPage: React.FC = () => {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Past Events Highlights</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {pastEvents.map((event, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="aspect-[128/130] overflow-hidden">
+              <div key={index} className="bg-[#00703C] text-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <div className="relative h-[360px] flex items-center justify-center overflow-hidden bg-gray-100">
                   <img
                     src={event.image}
                     alt={event.title}
-                    className="w-full h-full object-cover"
+                    className="max-h-[360px] max-w-full object-contain"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{event.title}</h3>
-                  <p className="text-sm text-gray-600 mb-1">{event.date}</p>
-                  <p className="text-sm text-[#00703C] font-semibold">{event.attendees} Attendees</p>
+                <div className="p-6 text-center">
+                  <h3 className="text-lg font-semibold mb-2">{event.title}</h3>
+                  <p className="text-sm text-white mb-1">{event.date}</p>
+                  <p className="text-sm font-semibold">{event.attendees} Attendees</p>
                 </div>
               </div>
             ))}

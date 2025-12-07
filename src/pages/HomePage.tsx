@@ -1,10 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, Users, Mail } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 import Footer from '../components/Footer';
+import DonationSection from '../components/DonationSection';
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
 }
+
+interface EventItem {
+  title: string;
+  date: string;
+  time?: string;
+  location?: string;
+  description?: string;
+  image?: string;
+  color?: string;
+}
+
+const defaultUpcomingEvents: EventItem[] = [
+  {
+    title: 'Weekly Islamic Study Circle',
+    date: 'Every Friday',
+    time: '2:00 PM - 4:00 PM',
+    location: 'Kyambogo University Mosque',
+    description: 'Join us for our weekly study sessions covering various Islamic topics',
+    image: '/Reunion.jpg',
+    color: 'green'
+  },
+  {
+    title: 'Charity Drive',
+    date: 'November 15, 2025',
+    time: '9:00 AM - 5:00 PM',
+    location: 'Campus Main Hall',
+    description: 'Community outreach program supporting underprivileged families',
+    image: '/executive meeting.jpg',
+    color: 'gray'
+  },
+  {
+    title: 'Ramadan Iftar Gathering',
+    date: 'March 2026',
+    time: 'Daily at Sunset',
+    location: 'University Mosque',
+    description: 'Daily community iftar meals during the holy month of Ramadan',
+    image: '/General assembly.jpg',
+    color: 'black'
+  }
+];
 
 const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -33,35 +74,8 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     }
   ];
 
-  const upcomingEvents = [
-    {
-      title: 'Weekly Islamic Study Circle',
-      date: 'Every Friday',
-      time: '2:00 PM - 4:00 PM',
-      location: 'Kyambogo University Mosque',
-      description: 'Join us for our weekly study sessions covering various Islamic topics',
-      image: '/Reunion.jpg',
-      color: 'green'
-    },
-    {
-      title: 'Charity Drive',
-      date: 'November 15, 2025',
-      time: '9:00 AM - 5:00 PM',
-      location: 'Campus Main Hall',
-      description: 'Community outreach program supporting underprivileged families',
-      image: '/executive meeting.jpg',
-      color: 'gray'
-    },
-    {
-      title: 'Ramadan Iftar Gathering',
-      date: 'March 2026',
-      time: 'Daily at Sunset',
-      location: 'University Mosque',
-      description: 'Daily community iftar meals during the holy month of Ramadan',
-      image: '/General assembly.jpg',
-      color: 'black'
-    }
-  ];
+
+  const [upcomingEvents, setUpcomingEvents] = useState<EventItem[]>(defaultUpcomingEvents);
 
   const tags = [
     'Kyumsa Sports Gala',
@@ -93,13 +107,47 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     corporatePartners[0]
   ];
 
+  // Load events from localStorage (show up to 3 on homepage) and listen for admin saves
+  useEffect(() => {
+    const loadEvents = () => {
+      const saved = localStorage.getItem('events');
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setUpcomingEvents(parsed.slice(0, 3));
+            return;
+          }
+        } catch (e) {
+          console.error('Error loading events:', e);
+        }
+      }
+      setUpcomingEvents(defaultUpcomingEvents);
+    };
+
+    const handleAdminSave = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail === 'events') loadEvents();
+    };
+
+    loadEvents();
+    window.addEventListener('adminDataSaved', handleAdminSave as EventListener);
+    window.addEventListener('storage', loadEvents);
+    window.addEventListener('focus', loadEvents);
+    return () => {
+      window.removeEventListener('adminDataSaved', handleAdminSave as EventListener);
+      window.removeEventListener('storage', loadEvents);
+      window.removeEventListener('focus', loadEvents);
+    };
+  }, []);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 7000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   return (
     <div className="min-h-screen">
@@ -108,11 +156,37 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <h3 className="text-sm font-semibold text-gray-700"># Top Tags</h3>
             <div className="flex flex-nowrap md:flex-wrap gap-2 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0 scrollbar-hide">
-              {tags.map((tag, index) => (
-                <span key={index} className="px-3 py-1.5 bg-[#00703C] text-white text-xs font-medium rounded hover:bg-[#005A30] transition-colors cursor-pointer whitespace-nowrap flex-shrink-0">
-                  {tag}
-                </span>
-              ))}
+              {tags.map((tag, index) => {
+                const getNavigationPath = () => {
+                  switch (tag) {
+                    case 'Kyumsa Sports Gala':
+                      return 'our-gallery';
+                    case 'KYUMSA CARAVAN':
+                      return 'kyumsa-caravan';
+                    case 'Darusus':
+                      return 'weekly-darusus';
+                    case 'Our Gallery':
+                      return 'our-gallery';
+                    case 'Campus Life':
+                      return 'our-events';
+                    case 'Community Service':
+                      return 'our-gallery';
+                    case 'Islamic Studies':
+                      return 'weekly-darusus';
+                    default:
+                      return 'home';
+                  }
+                };
+                return (
+                  <button
+                    key={index}
+                    onClick={() => onNavigate(getNavigationPath())}
+                    className="px-3 py-1.5 bg-[#00703C] text-white text-xs font-medium rounded hover:bg-[#005A30] transition-colors cursor-pointer whitespace-nowrap flex-shrink-0"
+                  >
+                    {tag}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -175,9 +249,12 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 px-8">
             <div className="group perspective-1000">
               <div className="relative h-56 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
-                <div className="absolute inset-0 bg-[#00703C] rounded-lg p-6 flex flex-col items-center justify-center text-white backface-hidden">
-                  <Users className="h-12 w-12 mb-4" />
-                  <h3 className="text-xl font-semibold">Community Building</h3>
+                <div className="absolute inset-0 rounded-lg overflow-hidden backface-hidden">
+                  <img src="/Community Building.jpg" alt="Community Building" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#00703C] via-transparent to-transparent opacity-70"></div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-end pb-6 text-white">
+                    <h3 className="text-xl font-semibold">Community Building</h3>
+                  </div>
                 </div>
                 <div className="absolute inset-0 bg-black rounded-lg p-6 flex items-center justify-center text-white backface-hidden rotate-y-180">
                   <p className="text-sm text-center">Fostering unity and brotherhood among Muslim students through regular gatherings and activities</p>
@@ -186,9 +263,12 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </div>
             <div className="group perspective-1000">
               <div className="relative h-56 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
-                <div className="absolute inset-0 bg-[#00703C] rounded-lg p-6 flex flex-col items-center justify-center text-white backface-hidden">
-                  <Calendar className="h-12 w-12 mb-4" />
-                  <h3 className="text-xl font-semibold">Islamic Studies</h3>
+                <div className="absolute inset-0 rounded-lg overflow-hidden backface-hidden">
+                  <img src="/Daily Darus Cover image.jpg" alt="Islamic Studies" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#00703C] via-transparent to-transparent opacity-70"></div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-end pb-6 text-white">
+                    <h3 className="text-xl font-semibold">Islamic Studies</h3>
+                  </div>
                 </div>
                 <div className="absolute inset-0 bg-black rounded-lg p-6 flex items-center justify-center text-white backface-hidden rotate-y-180">
                   <p className="text-sm text-center">Weekly and daily Darusus sessions to deepen understanding of Islamic knowledge and practice</p>
@@ -197,9 +277,12 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </div>
             <div className="group perspective-1000">
               <div className="relative h-56 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
-                <div className="absolute inset-0 bg-[#00703C] rounded-lg p-6 flex flex-col items-center justify-center text-white backface-hidden">
-                  <MapPin className="h-12 w-12 mb-4" />
-                  <h3 className="text-xl font-semibold">Charity Work</h3>
+                <div className="absolute inset-0 rounded-lg overflow-hidden backface-hidden">
+                  <img src="/Charity work.jpg" alt="Charity Work" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#00703C] via-transparent to-transparent opacity-70"></div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-end pb-6 text-white">
+                    <h3 className="text-xl font-semibold">Charity Work</h3>
+                  </div>
                 </div>
                 <div className="absolute inset-0 bg-black rounded-lg p-6 flex items-center justify-center text-white backface-hidden rotate-y-180">
                   <p className="text-sm text-center">Organizing outreach programs and supporting underprivileged communities through regular initiatives</p>
@@ -208,9 +291,12 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </div>
             <div className="group perspective-1000">
               <div className="relative h-56 transform-style-3d transition-transform duration-500 group-hover:rotate-y-180">
-                <div className="absolute inset-0 bg-[#00703C] rounded-lg p-6 flex flex-col items-center justify-center text-white backface-hidden">
-                  <Mail className="h-12 w-12 mb-4" />
-                  <h3 className="text-xl font-semibold">Student Support</h3>
+                <div className="absolute inset-0 rounded-lg overflow-hidden backface-hidden">
+                  <img src="/Student Support.jpg" alt="Student Support" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#00703C] via-transparent to-transparent opacity-70"></div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-end pb-6 text-white">
+                    <h3 className="text-xl font-semibold">Student Support</h3>
+                  </div>
                 </div>
                 <div className="absolute inset-0 bg-black rounded-lg p-6 flex items-center justify-center text-white backface-hidden rotate-y-180">
                   <p className="text-sm text-center">Providing academic guidance, mentorship, and resources to help students excel in their studies</p>
@@ -229,16 +315,16 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 key={index}
                 className="bg-[#00703C] text-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
+                <div className="relative h-[360px] flex items-center justify-center overflow-hidden bg-gray-100">
+                        <img
+                          src={event.image}
+                          alt={event.title}
+                          className="max-h-[360px] max-w-full object-contain"
+                        />
+                      </div>
+                <div className="p-6 text-center">
                   <h3 className="text-xl font-semibold mb-3">{event.title}</h3>
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-2 mb-4 flex flex-col items-center">
                     <div className="flex items-center space-x-2 text-sm">
                       <Calendar className="h-4 w-4" />
                       <span>{event.date}</span>
@@ -248,7 +334,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       <span>{event.location}</span>
                     </div>
                   </div>
-                  <p className="text-sm opacity-90 text-justify">{event.description}</p>
+                  <p className="text-sm opacity-90 text-center">{event.description}</p>
                 </div>
               </div>
             ))}
@@ -321,6 +407,8 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </div>
         </div>
       </section>
+
+      <DonationSection />
 
       <Footer />
     </div>

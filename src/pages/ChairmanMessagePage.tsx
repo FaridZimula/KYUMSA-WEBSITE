@@ -14,7 +14,8 @@ It is with immense gratitude to Allah (SWT) that I welcome you to the Kyambogo U
 KYUMSA has been instrumental in fostering Islamic values, academic excellence, and moral character among Muslim students at Kyambogo University. Our mission transcends the boundaries of religious practice; we strive to create a holistic environment where students can grow spiritually, intellectually, and socially while maintaining their Islamic identity.`
   });
 
-  useEffect(() => {
+  // Load data from localStorage
+  const loadData = () => {
     const saved = localStorage.getItem('chairmanMessage');
     if (saved) {
       try {
@@ -24,23 +25,14 @@ KYUMSA has been instrumental in fostering Islamic values, academic excellence, a
         console.error('Error loading chairman message:', e);
       }
     }
+  };
+
+  useEffect(() => {
+    loadData();
   }, []);
 
-  // Listen for storage changes and admin save events to update in real-time
+  // Listen for changes from admin dashboard
   useEffect(() => {
-    const loadData = () => {
-      const saved = localStorage.getItem('chairmanMessage');
-      if (saved) {
-        try {
-          const parsed = JSON.parse(saved);
-          setChairmanData(parsed);
-        } catch (e) {
-          console.error('Error loading chairman message:', e);
-        }
-      }
-    };
-
-    const handleStorageChange = () => loadData();
     const handleAdminSave = (e: Event) => {
       const customEvent = e as CustomEvent;
       if (customEvent.detail === 'chairmanMessage') {
@@ -48,16 +40,20 @@ KYUMSA has been instrumental in fostering Islamic values, academic excellence, a
       }
     };
 
-    window.addEventListener('storage', handleStorageChange);
-    window.addEventListener('focus', handleStorageChange);
     window.addEventListener('adminDataSaved', handleAdminSave as EventListener);
+    window.addEventListener('storage', loadData);
     
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('focus', handleStorageChange);
       window.removeEventListener('adminDataSaved', handleAdminSave as EventListener);
+      window.removeEventListener('storage', loadData);
     };
   }, []);
+
+  // Prepare preview: at least one or two paragraphs before 'Read More'
+  const paragraphs = chairmanData.message ? chairmanData.message.split(/\n\s*\n/).filter(Boolean) : [];
+  const preview = paragraphs.length >= 2
+    ? paragraphs.slice(0, 2).join('\n\n')
+    : (paragraphs[0] || chairmanData.message.split('\n').slice(0, 3).join('\n'));
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -96,7 +92,7 @@ KYUMSA has been instrumental in fostering Islamic values, academic excellence, a
               {isExpanded ? (
                 <div className="whitespace-pre-line">{chairmanData.message}</div>
               ) : (
-                <p>{chairmanData.message.split('\n\n')[0] || chairmanData.message.split('\n').slice(0, 3).join('\n')}</p>
+                <div className="whitespace-pre-line">{preview}</div>
               )}
             </div>
           <button

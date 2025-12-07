@@ -19,8 +19,13 @@ function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [showAnimation, setShowAnimation] = useState(true);
 
-  // Check URL hash on mount
+  // Determine initial page based on URL (supports /admin path and #hash for others)
   React.useEffect(() => {
+    const path = window.location.pathname;
+    if (path === '/admin' || path.endsWith('/admin')) {
+      setCurrentPage('admin');
+      return;
+    }
     const hash = window.location.hash.replace('#', '');
     if (hash) {
       setCurrentPage(hash);
@@ -29,6 +34,24 @@ function App() {
 
   // Update URL when page changes
   React.useEffect(() => {
+    if (currentPage === 'admin') {
+      // Use path-based URL for admin
+      window.history.replaceState(null, '', '/admin');
+      return;
+    }
+
+    // For non-admin pages, keep using hash-based navigation to avoid server routing
+    // Ensure base path is root when leaving admin or other path-based URLs
+    if (window.location.pathname !== '/') {
+      if (currentPage === 'home') {
+        window.history.replaceState(null, '', '/');
+        window.location.hash = '';
+        return;
+      }
+      // Set to root first, then apply hash
+      window.history.replaceState(null, '', '/');
+    }
+
     if (currentPage !== 'home') {
       window.location.hash = currentPage;
     } else {
